@@ -2,89 +2,93 @@ import 'package:prep_moy/main.dart';
 import 'package:flutter/material.dart';
 
 class SecTechno extends StatefulWidget {
-  SecTechno({Key? key}) : super(key: key);
+  const SecTechno({Key? key}) : super(key: key);
 
   @override
   _SecTechnoState createState() => _SecTechnoState();
 }
 
 class _SecTechnoState extends State<SecTechno> {
-  static double e_alg = 0;
-  static double t_alg = 0;
-  static double ds_alg = 0;
+    static double? e_alg ;
+  static double? t_alg ;
+  static double? ds_alg ;
 
-  static double t_phy = 0;
-  static double ds_phy = 0;
-  static double tp_phy = 0;
-  static double e_phy = 0;
+  static double? t_phy ;
+  static double? ds_phy ;
+  static double? tp_phy ;
+  static double? e_phy ;
 
-  static double e_anal = 0;
-  static double ds_anal = 0;
-  static double t_anal = 0;
+  static double? e_anal ;
+  static double? ds_anal ;
+  static double? t_anal ;
 
-  static double e_chimie = 0;
-  static double t_chimie = 0;
-  static double ds_chimie = 0;
+  static double? e_chimie ;
+  static double? t_chimie ;
+  static double? ds_chimie ;
 
-  static double e_inf = 0;
-  static double t_inf = 0;
-  static double ds_inf = 0;
+  static double? e_chimieorg ;
+  static double? t_chimieorg ;
+  static double? ds_chimieorg ;
 
-  static double e_ang = 0;
-  static double t_ang = 0;
-  static double ds_ang = 0;
+  static double? e_inf ;
+  static double? t_inf ;
+  static double? ds_inf ;
 
-  static double e_fr = 0;
-  static double ds_fr = 0;
-  static double t_fr = 0;
+  static double? e_ang ;
+  static double? t_ang ;
+  static double? ds_ang ;
 
-  static double e_msi = 0;
-  static double t_msi = 0;
-  static double ds_msi = 0;
+  static double? e_fr ;
+  static double? ds_fr ;
+  static double? t_fr ;
 
-  static double e_auto = 0;
-  static double ds_auto = 0;
-  static double t_auto = 0;
+  static double? e_msi ;
+  static double? t_msi ;
+  static double? ds_msi ;
 
-  static double sprt = 0;
-  static double moy = 0;
-  static double mo = 0;
+  static double? e_auto ;
+  static double? ds_auto ;
+  static double? t_auto ;
 
-  static double tfab = 0;
-  static double dsfab = 0;
-  static double efab = 0;
-  static double tcon = 0;
-  static double dscon = 0;
-  static double econ = 0;
+  static double? sprt ;
+  static double? moy ;
+  static double? mo ;
+
+  static double? tfab;
+  static double? dsfab;
+  static double? efab;
+  static double? tcon;
+  static double? dscon;
+  static double? econ;
   void doCalc(
-      t_alg,
-      t_anal,
-      t_phy,
-      t_chimie,
-      t_fr,
-      t_ang,
-      t_msi,
-      t_auto,
-      t_inf,
-      ds_alg,
-      ds_anal,
-      ds_ang,
-      ds_auto,
-      ds_chimie,
-      ds_fr,
-      ds_inf,
-      ds_msi,
-      ds_phy,
-      e_alg,
-      e_anal,
-      e_ang,
-      e_auto,
-      e_chimie,
-      e_fr,
-      e_inf,
-      e_msi,
-      e_phy,
-      tp_phy,
+      tAlg,
+      tAnal,
+      tPhy,
+      tChimie,
+      tFr,
+      tAng,
+      tMsi,
+      tAuto,
+      tInf,
+      dsAlg,
+      dsAnal,
+      dsAng,
+      dsAuto,
+      dsChimie,
+      dsFr,
+      dsInf,
+      dsMsi,
+      dsPhy,
+      eAlg,
+      eAnal,
+      eAng,
+      eAuto,
+      eChimie,
+      eFr,
+      eInf,
+      eMsi,
+      ePhy,
+      tpPhy,
       tfab,
       dsfab,
       efab,
@@ -92,22 +96,42 @@ class _SecTechnoState extends State<SecTechno> {
       dscon,
       econ,
       sprt) {
-    setState(() {
-      mo = (5 * (0.15 * t_alg + 0.35 * ds_alg + 0.5 * e_alg) +
-              5 * (0.15 * t_anal + 0.35 * ds_anal + 0.5 * e_anal) +
-              8 * (0.15 * tp_phy + 0.2 * t_phy + 0.25 * ds_phy + 0.4 * e_phy) +
-              3.5 * (0.15 * t_msi + 0.35 * ds_msi + 0.5 * e_msi) +
+    setState(() {if (sprt == -1) {
+      
+      mo = (5 * (0.15 * tAlg + 0.35 * dsAlg + 0.5 * eAlg) +
+              5 * (0.15 * tAnal + 0.35 * dsAnal + 0.5 * eAnal) +
+              8 * (0.2 * tpPhy + 0.15 * tPhy + 0.25 * dsPhy + 0.4 * ePhy) +
+              3.5 * (0.15 * tMsi + 0.35 * dsMsi + 0.5 * eMsi) +
               2.1*(0.15*tfab+0.35*dsfab+0.5*efab)+
               4.9*(0.15*tcon+0.35*dscon+0.5*econ)+
-              4 * (0.15 * t_chimie + 0.35 * ds_chimie + 0.5 * e_chimie) +
-              4 * (0.15 * t_inf + 0.35 * ds_inf + 0.5 * e_inf) +
-              1.5 * (0.15 * t_auto + 0.35 * ds_auto + 0.5 * e_auto) +
+              4 * (0.15 * tChimie + 0.35 * dsChimie + 0.5 * eChimie) +
+              4 * (0.15 * tInf + 0.35 * dsInf + 0.5 * eInf) +
+              1.5 * (0.15 * tAuto + 0.35 * dsAuto + 0.5 * eAuto) +
            
-              3 * (0.15 * t_fr + 0.35 * ds_fr + 0.5 * e_fr) +
-              3 * (0.15 * t_ang + 0.35 * ds_ang + 0.5 * e_ang)) /
+              3 * (0.15 * tFr + 0.35 * dsFr + 0.5 * eFr) +
+              3 * (0.15 * tAng + 0.35 * dsAng + 0.5 * eAng)) /
           44
           ;
-      moy = double.parse((mo).toStringAsFixed(2));
+      moy = double.parse((mo)!.toStringAsFixed(2));
+      
+    } else {
+      
+      mo = (5 * (0.15 * tAlg + 0.35 * dsAlg + 0.5 * eAlg) +
+              5 * (0.15 * tAnal + 0.35 * dsAnal + 0.5 * eAnal) +
+              8 * (0.2 * tpPhy + 0.15 * tPhy + 0.25 * dsPhy + 0.4 * ePhy) +
+              3.5 * (0.15 * tMsi + 0.35 * dsMsi + 0.5 * eMsi) +
+              2.1*(0.15*tfab+0.35*dsfab+0.5*efab)+
+              4.9*(0.15*tcon+0.35*dscon+0.5*econ)+
+              4 * (0.15 * tChimie + 0.35 * dsChimie + 0.5 * eChimie) +
+              4 * (0.15 * tInf + 0.35 * dsInf + 0.5 * eInf) +
+              1.5 * (0.15 * tAuto + 0.35 * dsAuto + 0.5 * eAuto) +
+           
+              3 * (0.15 * tFr + 0.35 * dsFr + 0.5 * eFr) +
+              3 * (0.15 * tAng + 0.35 * dsAng + 0.5 * eAng)+sprt) /
+          45
+          ;
+      moy = double.parse((mo)!.toStringAsFixed(2));
+    }
     });
   }
 
@@ -123,33 +147,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_alg = double.tryParse(value!)!;
-
-        if (t_alg == null || t_alg > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_alg = double.tryParse(value!)!;
       },
@@ -168,33 +193,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_phy = double.tryParse(value!)!;
-
-        if (t_phy == null || t_phy > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_phy = double.tryParse(value!)!;
       },
@@ -213,33 +239,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? tfab = double.tryParse(value!)!;
-
-        if (tfab == null || tfab > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         tfab= double.tryParse(value!)!;
       },
@@ -258,33 +285,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_anal = double.tryParse(value!)!;
-
-        if (t_anal == null || t_anal > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_anal = double.tryParse(value!)!;
       },
@@ -303,33 +331,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_chimie = double.tryParse(value!)!;
-
-        if (t_chimie == null || t_chimie > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_chimie = double.tryParse(value!)!;
       },
@@ -348,33 +377,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_msi = double.tryParse(value!)!;
-
-        if (t_msi == null || t_msi > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_msi = double.tryParse(value!)!;
       },
@@ -393,33 +423,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_auto = double.tryParse(value!)!;
-
-        if (t_auto == null || t_auto > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_auto = double.tryParse(value!)!;
       },
@@ -438,33 +469,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_fr = double.tryParse(value!)!;
-
-        if (t_fr == null || t_fr > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_fr = double.tryParse(value!)!;
       },
@@ -483,33 +515,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_ang = double.tryParse(value!)!;
-
-        if (t_ang == null || t_ang > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_ang = double.tryParse(value!)!;
       },
@@ -528,33 +561,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? t_inf = double.tryParse(value!)!;
-
-        if (t_inf == null || t_inf > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_inf = double.tryParse(value!)!;
       },
@@ -573,33 +607,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? tcon_ = double.tryParse(value!)!;
-
-        if (tcon == null || tcon > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         tcon = double.tryParse(value!)!;
       },
@@ -618,33 +653,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? tp_phy = double.tryParse(value!)!;
-
-        if (tp_phy == null || tp_phy > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         tp_phy = double.tryParse(value!)!;
       },
@@ -663,33 +699,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_alg = double.tryParse(value!)!;
-
-        if (ds_alg == null || ds_alg > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_alg = double.tryParse(value!)!;
       },
@@ -708,33 +745,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? dsfab = double.tryParse(value!)!;
-
-        if (dsfab == null || dsfab > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         dsfab = double.tryParse(value!)!;
       },
@@ -753,33 +791,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_anal = double.tryParse(value!)!;
-
-        if (ds_anal == null || ds_anal > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_anal = double.tryParse(value!)!;
       },
@@ -798,33 +837,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_phy = double.tryParse(value!)!;
-
-        if (ds_phy == null || ds_phy > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_phy = double.tryParse(value!)!;
       },
@@ -843,33 +883,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_chimie = double.tryParse(value!)!;
-
-        if (ds_chimie == null || ds_chimie > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_chimie = double.tryParse(value!)!;
       },
@@ -888,33 +929,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_fr = double.tryParse(value!)!;
-
-        if (ds_fr == null || ds_fr > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_fr = double.tryParse(value!)!;
       },
@@ -933,33 +975,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? dscon = double.tryParse(value!)!;
-
-        if (dscon == null || dscon > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         dscon = double.tryParse(value!)!;
       },
@@ -979,33 +1022,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_ang = double.tryParse(value!)!;
-
-        if (ds_ang == null || ds_ang > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_ang = double.tryParse(value!)!;
       },
@@ -1024,33 +1068,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_msi = double.tryParse(value!)!;
-
-        if (ds_msi == null || ds_msi > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_msi = double.tryParse(value!)!;
       },
@@ -1069,33 +1114,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_auto = double.tryParse(value!)!;
-
-        if (ds_auto == null || ds_auto > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_auto = double.tryParse(value!)!;
       },
@@ -1114,33 +1160,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? ds_inf = double.tryParse(value!)!;
-
-        if (ds_inf == null || ds_inf > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_inf = double.tryParse(value!)!;
       },
@@ -1159,33 +1206,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_alg = double.tryParse(value!)!;
-
-        if (e_alg == null || e_alg > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_alg = double.tryParse(value!)!;
       },
@@ -1204,33 +1252,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? efab = double.tryParse(value!)!;
-
-        if (efab == null || efab > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         efab = double.tryParse(value!)!;
       },
@@ -1249,33 +1298,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? econ = double.tryParse(value!)!;
-
-        if (econ == null || econ > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         econ = double.tryParse(value!)!;
       },
@@ -1294,33 +1344,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_anal = double.tryParse(value!)!;
-
-        if (e_anal == null || e_anal > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_anal = double.tryParse(value!)!;
       },
@@ -1339,33 +1390,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_phy = double.tryParse(value!)!;
-
-        if (e_phy == null || e_phy > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_phy = double.tryParse(value!)!;
       },
@@ -1384,33 +1436,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_chimie = double.tryParse(value!)!;
-
-        if (e_chimie == null || e_chimie > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_chimie = double.tryParse(value!)!;
       },
@@ -1429,33 +1482,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_fr = double.tryParse(value!)!;
-
-        if (e_fr == null || e_fr > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_fr = double.tryParse(value!)!;
       },
@@ -1474,33 +1528,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_ang = double.tryParse(value!)!;
-
-        if (e_ang == null || e_ang > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_ang = double.tryParse(value!)!;
       },
@@ -1519,33 +1574,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_msi = double.tryParse(value!)!;
-
-        if (e_msi == null || e_msi > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_msi = double.tryParse(value!)!;
       },
@@ -1564,33 +1620,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_auto = double.tryParse(value!)!;
-
-        if (e_auto == null || e_auto > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_auto = double.tryParse(value!)!;
       },
@@ -1609,33 +1666,34 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double? e_inf = double.tryParse(value!)!;
-
-        if (e_inf == null || e_inf > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
+      validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_inf = double.tryParse(value!)!;
       },
@@ -1654,41 +1712,36 @@ class _SecTechnoState extends State<SecTechno> {
             color: Colors.grey[400], fontSize: 20, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(25.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.lightBlue,
             width: 1.0,
           ),
         ),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(50.0)),
           borderSide: BorderSide(color: Colors.lightGreenAccent),
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (String? value) {
-        double sprt = double.tryParse(value!)!;
 
-        if (sprt == null || sprt > 20) {
-          return 'Invalid Input';
-        }
-
-        return null;
-      },
       onSaved: (String? value) {
-        sprt = double.tryParse(value!)!;
+        if (value == '-'){sprt=-1;}
+        else{
+        sprt = double.tryParse(value!);}
       },
     );
   }
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -1702,13 +1755,13 @@ class _SecTechnoState extends State<SecTechno> {
       backgroundColor: backgroundColour,
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.all(24),
+          margin: const EdgeInsets.all(24),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1717,12 +1770,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _talgIn(),
                 _dsalg(),
                 _ealg(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1731,12 +1784,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tanalIn(),
                 _dsanal(),
                 _eanal(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1745,13 +1798,13 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tphyIn(),
                 _tpPhyIn(),
                 _dsphy(),
                 _ephy(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1760,12 +1813,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tmsiIn(),
                 _dsmsi(),
                 _emsi(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1774,12 +1827,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tfabIn(),
                 _dsfab(),
                 _efab(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1788,12 +1841,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tconIn(),
                 _dscon(),
                 _econ(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1802,12 +1855,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tinfIn(),
                 _dsinfo(),
                 _einf(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1816,13 +1869,13 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tchimieIn(),
                 _dschimie(),
                 _echimie(),
                 
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1831,12 +1884,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tautoIn(),
                 _dsauto(),
                 _eauto(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1845,12 +1898,12 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tfrIn(),
                 _dsfr(),
                 _efr(),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 const Text(
@@ -1859,71 +1912,87 @@ class _SecTechnoState extends State<SecTechno> {
                       fontFamily: 'Raleway',
                       fontSize: 20,
                       fontWeight: FontWeight.w100,
-                      color: Colors.yellow),
+                      color: Color.fromARGB(255, 215, 54, 0)),
                 ),
                 _tangIn(),
                 _dsang(),
                 _eang(),
                 
-                SizedBox(
-                  height: 40,
+                const SizedBox(
+                  height: 25,
+                ),
+                const Text(
+                  'Si vous êtes dispensé(e)s ou si vous ne passez pas le sport, mettez un tiret: - ',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w200,
+                      fontStyle: FontStyle.italic,
+                      fontSize: 15,
+                      color: Color.fromARGB(255, 215, 54, 0)),
+                ),
+                _sprtIn(),
+                const SizedBox(
+                  height: 20,
                 ),
                 ButtonTheme(
                     minWidth: 100,
                     height: 45,
-                    child: RaisedButton(
-                      color: Colors.red[600],
-                      child: Text(
-                        'Calculer',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      onPressed: () {
-                        if (!_formKey.currentState!.validate()) {
-                          return;
-                        }
+                    child: ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    primary: Colors.red[600], // Set the background color
+  ),
+  onPressed: () {
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
 
-                        _formKey.currentState!.save();
-                        setState(() {
-                          doCalc(
-                              t_alg,
-                              t_anal,
-                              t_phy,
-                              t_chimie,
-                              t_fr,
-                              t_ang,
-                              t_msi,
-                              t_auto,
-                              t_inf,
-                              ds_alg,
-                              ds_anal,
-                              ds_ang,
-                              ds_auto,
-                              ds_chimie,
-                              ds_fr,
-                              ds_inf,
-                              ds_msi,
-                              ds_phy,
-                              e_alg,
-                              e_anal,
-                              e_ang,
-                              e_auto,
-                              e_chimie,
-                              e_fr,
-                              e_inf,
-                              e_msi,
-                              e_phy,
-                              tp_phy,
-                               tfab,
-      dsfab,
-      efab,
-      tcon,
-      dscon,
-      econ,
-                              sprt);
-                        });
-                        moyAlert(context, moy);
-                      },
-                    ))
+    _formKey.currentState!.save();
+    setState(() {
+      doCalc(
+        t_alg,
+        t_anal,
+        t_phy,
+        t_chimie,
+        t_fr,
+        t_ang,
+        t_msi,
+        t_auto,
+        t_inf,
+        ds_alg,
+        ds_anal,
+        ds_ang,
+        ds_auto,
+        ds_chimie,
+        ds_fr,
+        ds_inf,
+        ds_msi,
+        ds_phy,
+        e_alg,
+        e_anal,
+        e_ang,
+        e_auto,
+        e_chimie,
+        e_fr,
+        e_inf,
+        e_msi,
+        e_phy,
+        tp_phy,
+        tfab,
+        dsfab,
+        efab,
+        tcon,
+        dscon,
+        econ,
+        sprt,
+      );
+    });
+    moyAlert(context, moy);
+  },
+  child: const Text(
+    'Calculer',
+    style: TextStyle(color: Colors.white, fontSize: 20),
+  ),
+),
+)
               ],
             ),
           ),
@@ -1941,10 +2010,10 @@ void moyAlert(BuildContext context, moy) {
       fontWeight: FontWeight.w800,
       fontSize: 35,
     ),
-    title: Text("Resultat : "),
+    title: const Text("Resultat : "),
     content: Text(
       "Votre moyenne est $moy ",
-      style: TextStyle(
+      style: const TextStyle(
           fontStyle: FontStyle.italic,
           fontWeight: FontWeight.bold,
           color: Colors.white,

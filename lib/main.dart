@@ -1,238 +1,187 @@
 import 'package:flutter/material.dart';
-import 'package:prep_moy/mp.dart';
-import 'package:prep_moy/pc.dart';
-import 'package:prep_moy/pt.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:prep_moy/1ereChoixSemestre.dart';
+import 'package:prep_moy/2emeChoixSemestre.dart';
+import 'package:prep_moy/concours.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PREPA',
-      home: HomeScreen(),
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromARGB(255, 46, 79, 79),
+        ),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 44, 51, 51),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 14, 131, 136),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            padding:
+                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+          ),
+        ),
+      ),
+      home: const HomeScreen(),
     );
   }
-}
-
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
 }
 
 var appBarColor = Colors.tealAccent[700];
 var backgroundColour = Colors.grey[850];
 var buttonColour = Colors.yellow[800];
-var appBarTextStyle = TextStyle(fontFamily: 'Pacifico'); // sauf sec sc et eco
+var appBarTextStyle = const TextStyle(fontFamily: 'Pacifico');
 var fillColor = Colors.grey[800];
 var inputTextColor = Colors.amber[50];
 
-///TO DO
-var labelText = Colors.grey[400];
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
-class _HomeScreenState extends State<HomeScreen> {
+  void _openUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: backgroundColour,
-        appBar: AppBar(
-            centerTitle: true,
-            backgroundColor: appBarColor,
-            title: Text(
-              'Calcul Moyenne Prepa',
-              style: appBarTextStyle,
-            )),
-        body: SingleChildScrollView(
-          child: Center(
-              child: Column(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'Calcul Moyenne Prepa',
+          style: TextStyle(
+            fontFamily: 'Pacifico',
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SecMath()),
+                    MaterialPageRoute(builder: (context) => const PremChoix()),
                   );
                 },
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(80.0)),
-                padding: EdgeInsets.all(0.0),
-                child: Ink(
-                  decoration: BoxDecoration(
-                      color: buttonColour,
-                      borderRadius: BorderRadius.circular(30.0)),
-                  child: Container(
-                    constraints:
-                        BoxConstraints(maxWidth: 300.0, minHeight: 70.0),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "MATH-PHYSIQUE",
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(
-                          fontFamily: 'Raleway',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w100,
-                          color: Colors.yellow[100]),
-                    ),
+                child: const Text(
+                  "1ère Année",
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w100,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SecTechno()),
+                    MaterialPageRoute(builder: (context) => const DeuxChoix()),
                   );
                 },
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(80.0)),
-                padding: EdgeInsets.all(0.0),
-                child: Ink(
-                  decoration: BoxDecoration(
-                      color: buttonColour,
-                      borderRadius: BorderRadius.circular(30.0)),
-                  child: Container(
-                    constraints:
-                        BoxConstraints(maxWidth: 300.0, minHeight: 70.0),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "TECHNO",
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(
-                          fontFamily: 'Raleway',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w100,
-                          color: Colors.yellow[100]),
-                    ),
+                child: const Text(
+                  "2ème Année",
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w100,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SecPyhisuqe()),
+                    MaterialPageRoute(builder: (context) => const Concours()),
                   );
                 },
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(80.0)),
-                padding: EdgeInsets.all(0.0),
-                child: Ink(
-                  decoration: BoxDecoration(
-                      color: buttonColour,
-                      borderRadius: BorderRadius.circular(30.0)),
-                  child: Container(
-                    constraints:
-                        BoxConstraints(maxWidth: 300.0, minHeight: 70.0),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "PHYSIQUE-CHIMIE",
-                      textAlign: TextAlign.center,
-                      style: new TextStyle(
-                          fontFamily: 'Raleway',
-                          fontSize: 20,
-                          fontWeight: FontWeight.w100,
-                          color: Colors.yellow[100]),
-                    ),
+                child: const Text(
+                  "Concours",
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w100,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
             ],
-          )),
-        ),
-        drawer: Drawer(
-          child: Container(
-            color: backgroundColour,
-            child: ListView(
-              padding: EdgeInsets.fromLTRB(15, 30, 15, 15),
-              children: <Widget>[
-                RaisedButton.icon(
-                  label: Text('Light Theme'),
-                  color: Colors.white,
-                  icon: Icon(Icons.wb_sunny_rounded),
-                  onPressed: () {
-                    appBarColor = Colors.greenAccent[400];
-                    backgroundColour = Colors.amber[50];
-                    buttonColour = Colors.lightBlueAccent;
-                    fillColor = Colors.amber[50];
-                    inputTextColor = Colors.grey[900];
-                    setState(
-                      () {},
-                    );
-                  },
-                ),
-                SizedBox(height: 25),
-                RaisedButton.icon(
-                  color: Colors.grey[850],
-                  label: Text(
-                    'Dark Theme',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  icon: Icon(
-                    Icons.nightlight_round,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    appBarColor = Colors.tealAccent[700];
-                    backgroundColour = Colors.grey[850];
-                    buttonColour = Colors.yellow[800];
-                    fillColor = Colors.grey[800];
-                    inputTextColor = Colors.amber[50];
-                    setState(
-                      () {},
-                    );
-                  },
-                ),
-                 SizedBox(height: 500),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    RaisedButton.icon(
-                        color: Colors.purple[100],
-                        onPressed: () {
-                          _openurlinst();
-                        },
-                        icon: Icon(Icons.person),
-                        label: Text('Instagram',
-                            style: TextStyle(
-                                decoration: TextDecoration.underline)))
-                  ],
-                )
-              ],
-            ),
           ),
-        ));
-  }
-}
-_openurlinst() async {
-  const url = 'https://www.instagram.com/dhia.betis/?hl=en';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
+        ),
+      ),
+      drawer: Drawer(
+        child: Container(
+          color: const Color.fromARGB(255, 44, 51, 51),
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(15, 30, 15, 15),
+            children: <Widget>[
+              ElevatedButton.icon(
+                label: const Text('Light Theme',style: TextStyle(color: Color.fromARGB(255, 21, 21, 21))),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 255, 255)),
+                ),
+                icon: const Icon(Icons.wb_sunny_rounded,color: Color.fromARGB(255, 0, 0, 0),) ,
+                onPressed: () {
+                  var appBarColor = Color.fromARGB(255, 115, 223, 218);
+                  var backgroundColour = Color.fromARGB(255, 255, 255, 255);
+                  var buttonColour = const Color.fromARGB(255, 255, 247, 233);
+                  var appBarTextStyle = const TextStyle(fontFamily: 'Pacifico');
+                  var fillColor = Colors.grey[800];
+                  var inputTextColor = Colors.amber[50];
+                },
+              ),
+              const SizedBox(height: 25),
+              ElevatedButton.icon(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Color.fromARGB(255, 7, 7, 7)),
+                ),
+                label: const Text(
+                  'Dark Theme',
+                  style: TextStyle(color: Colors.white),
+                ),
+                icon: const Icon(
+                  Icons.nightlight_round,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  var appBarColor = Colors.tealAccent[700];
+var backgroundColour = Colors.grey[850];
+var buttonColour = Colors.yellow[800];
+var appBarTextStyle = const TextStyle(fontFamily: 'Pacifico');
+var fillColor = Colors.grey[800];
+var inputTextColor = Colors.amber[50];
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

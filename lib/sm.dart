@@ -1,58 +1,59 @@
 import 'package:prep_moy/main.dart';
 import 'package:flutter/material.dart';
 
-class SecMath extends StatefulWidget {
-  const SecMath({Key? key}) : super(key: key);
+
+class SecSM extends StatefulWidget {
+  const SecSM({Key? key}) : super(key: key);
 
   @override
-  _SecMathState createState() => _SecMathState();
+  State<SecSM> createState() => _SecSMState();
 }
 
-class _SecMathState extends State<SecMath> {
-  static double? e_alg;
-  static double? t_alg;
-  static double? ds_alg;
+class _SecSMState extends State<SecSM> {
+   static double? e_alg ;
+  static double? t_alg ;
+  static double? ds_alg ;
 
-  static double? t_phy;
-  static double? ds_phy;
-  static double? tp_phy;
-  static double? e_phy;
+  static double? t_phy ;
+  static double? ds_phy ;
+  static double? tp_phy ;
+  static double? e_phy ;
 
-  static double? e_anal;
-  static double? ds_anal;
-  static double? t_anal;
+  static double? e_anal ;
+  static double? ds_anal ;
+  static double? t_anal ;
 
-  static double? e_chimie;
-  static double? t_chimie;
-  static double? ds_chimie;
+  static double? e_chimie ;
+  static double? t_chimie ;
+  static double? ds_chimie ;
 
-  static double? e_chimieorg;
-  static double? t_chimieorg;
-  static double? ds_chimieorg;
+  static double? e_chimieorg ;
+  static double? t_chimieorg ;
+  static double? ds_chimieorg ;
 
-  static double? e_inf;
-  static double? t_inf;
-  static double? ds_inf;
+  static double? e_inf ;
+  static double? t_inf ;
+  static double? ds_inf ;
 
-  static double? e_ang;
-  static double? t_ang;
-  static double? ds_ang;
+  static double? e_ang ;
+  static double? t_ang ;
+  static double? ds_ang ;
 
-  static double? e_fr;
-  static double? ds_fr;
-  static double? t_fr;
+  static double? e_fr ;
+  static double? ds_fr ;
+  static double? t_fr ;
 
-  static double? e_msi;
-  static double? t_msi;
-  static double? ds_msi;
+  static double? e_msi ;
+  static double? t_msi ;
+  static double? ds_msi ;
 
-  static double? e_auto;
-  static double? ds_auto;
-  static double? t_auto;
+  static double? e_auto ;
+  static double? ds_auto ;
+  static double? t_auto ;
 
-  static double? sprt;
-  static double? moy;
-  static double? mo;
+  static double? sprt ;
+  static double? moy ;
+  static double? mo ;
 
   static double? tfab;
   static double? dsfab;
@@ -92,40 +93,17 @@ class _SecMathState extends State<SecMath> {
       tpPhy,
       sprt) {
     setState(() {
-      if (sprt == -1) {
-        mo = (7 * (0.15 * tAlg + 0.35 * dsAlg + 0.5 * eAlg) +
-                7 * (0.15 * tAnal + 0.35 * dsAnal + 0.5 * eAnal) +
-                8 *
-                    (0.2 * tpPhy +
-                        0.15 * tPhy +
-                        0.25 * dsPhy +
-                        0.4 * ePhy) +
-                3.5 * (0.15 * tMsi + 0.35 * dsMsi + 0.5 * eMsi) +
-                4 * (0.15 * tChimie + 0.35 * dsChimie + 0.5 * eChimie) +
-                4 * (0.15 * tInf + 0.35 * dsInf + 0.5 * eInf) +
-                1.5 * (0.15 * tAuto + 0.35 * dsAuto + 0.5 * eAuto) +
-                3 * (0.15 * tFr + 0.35 * dsFr + 0.5 * eFr) +
-                3 * (0.15 * tAng + 0.35 * dsAng + 0.5 * eAng)) /
-            41;
-        moy = double.parse((mo)!.toStringAsFixed(2));
-      } else {
-        mo = (7 * (0.15 * tAlg + 0.35 * dsAlg + 0.5 * eAlg) +
-                7 * (0.15 * tAnal + 0.35 * dsAnal + 0.5 * eAnal) +
-                8 *
-                    (0.2 * tpPhy +
-                        0.15 * tPhy +
-                        0.25 * dsPhy +
-                        0.4 * ePhy) +
-                3.5 * (0.15 * tMsi + 0.35 * dsMsi + 0.5 * eMsi) +
-                4 * (0.15 * tChimie + 0.35 * dsChimie + 0.5 * eChimie) +
-                4 * (0.15 * tInf + 0.35 * dsInf + 0.5 * eInf) +
-                1.5 * (0.15 * tAuto + 0.35 * dsAuto + 0.5 * eAuto) +
-                3 * (0.15 * tFr + 0.35 * dsFr + 0.5 * eFr) +
-                3 * (0.15 * tAng + 0.35 * dsAng + 0.5 * eAng) +
-                sprt) /
-            42;
-        moy = double.parse((mo)!.toStringAsFixed(2));
-      }
+      mo = (6 * (0.15 * tAlg + 0.35 * dsAlg + 0.5 * eAlg) +
+          8 * (0.15 * tAnal + 0.35 * dsAnal + 0.5 * eAnal) +
+          10 * (0.2 * tpPhy + 0.15 * tPhy + 0.25 * dsPhy + 0.4 * ePhy) +
+          2.4 * (0.15 * tMsi + 0.35 * dsMsi + 0.5 * eMsi) +
+          4 * (0.15 * tChimie + 0.35 * dsChimie + 0.5 * eChimie) +
+          4 * (0.15 * tInf + 0.35 * dsInf + 0.5 * eInf) +
+          3.6 * (0.15 * tAuto + 0.35 * dsAuto + 0.5 * eAuto) +
+          
+          3 * (0.15 * tFr + 0.35 * dsFr + 0.5 * eFr) +
+          3 * (0.15 * tAng + 0.35 * dsAng + 0.5 * eAng) )/ 44;
+      moy = double.parse((mo)!.toStringAsFixed(2));
     });
   }
 
@@ -160,15 +138,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_alg = double.tryParse(value!)!;
       },
@@ -205,16 +183,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_phy = double.tryParse(value!)!;
       },
@@ -251,16 +229,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_anal = double.tryParse(value!)!;
       },
@@ -298,15 +276,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_chimie = double.tryParse(value!)!;
       },
@@ -344,15 +322,16 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
+
       onSaved: (String? value) {
         t_msi = double.tryParse(value!)!;
       },
@@ -390,15 +369,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_auto = double.tryParse(value!)!;
       },
@@ -436,15 +415,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_fr = double.tryParse(value!)!;
       },
@@ -482,15 +461,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_ang = double.tryParse(value!)!;
       },
@@ -527,16 +506,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         t_inf = double.tryParse(value!)!;
       },
@@ -574,15 +553,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         tp_phy = double.tryParse(value!)!;
       },
@@ -619,16 +598,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:  (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_alg = double.tryParse(value!)!;
       },
@@ -666,15 +645,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_anal = double.tryParse(value!)!;
       },
@@ -712,15 +691,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_phy = double.tryParse(value!)!;
       },
@@ -758,15 +737,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_chimie = double.tryParse(value!)!;
       },
@@ -803,16 +782,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:  (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_fr = double.tryParse(value!)!;
       },
@@ -849,16 +828,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_ang = double.tryParse(value!)!;
       },
@@ -896,15 +875,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_msi = double.tryParse(value!)!;
       },
@@ -942,15 +921,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_auto = double.tryParse(value!)!;
       },
@@ -988,15 +967,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         ds_inf = double.tryParse(value!)!;
       },
@@ -1034,15 +1013,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_alg = double.tryParse(value!)!;
       },
@@ -1079,16 +1058,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_anal = double.tryParse(value!)!;
       },
@@ -1126,15 +1105,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_phy = double.tryParse(value!)!;
       },
@@ -1171,16 +1150,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_chimie = double.tryParse(value!)!;
       },
@@ -1217,16 +1196,16 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_fr = double.tryParse(value!)!;
       },
@@ -1264,15 +1243,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_ang = double.tryParse(value!)!;
       },
@@ -1310,15 +1289,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_msi = double.tryParse(value!)!;
       },
@@ -1356,15 +1335,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_auto = double.tryParse(value!)!;
       },
@@ -1402,15 +1381,15 @@ class _SecMathState extends State<SecMath> {
       ),
       keyboardType: TextInputType.number,
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Veuillez entrer une valeur';
-        }
-        double? parsedValue = double.tryParse(value);
-        if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
-          return 'Veuillez entrer une valeur comprise entre 0 et 20';
-        }
-        return null;
-      },
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
         e_inf = double.tryParse(value!)!;
       },
@@ -1447,12 +1426,18 @@ class _SecMathState extends State<SecMath> {
         ),
       ),
       keyboardType: TextInputType.number,
+      validator:(value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Veuillez entrer une valeur';
+                  }
+                  double? parsedValue = double.tryParse(value);
+                  if (parsedValue == null || parsedValue < 0 || parsedValue > 20) {
+                    return 'Veuillez entrer une valeur comprise entre 0 et 20';
+                  }
+                  return null;
+                },
       onSaved: (String? value) {
-        if (value == '-') {
-          sprt = -1;
-        } else {
-          sprt = double.tryParse(value!);
-        }
+        sprt = double.tryParse(value!)!;
       },
     );
   }
@@ -1465,7 +1450,7 @@ class _SecMathState extends State<SecMath> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'MP',
+          'SM',
           style: appBarTextStyle,
         ),
         backgroundColor: Colors.deepOrangeAccent[400],
@@ -1609,18 +1594,7 @@ class _SecMathState extends State<SecMath> {
                 const SizedBox(
                   height: 25,
                 ),
-                const Text(
-                  'Si vous êtes dispensé(e)s ou si vous ne passez pas le sport, mettez un tiret: - ',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w200,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 15,
-                      color: Color.fromARGB(255, 215, 54, 0)),
-                ),
-                _sprtIn(),
-                const SizedBox(
-                  height: 20,
-                ),
+                
                 ButtonTheme(
                     minWidth: 100,
                     height: 45,
